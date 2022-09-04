@@ -1,0 +1,50 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "server express",
+    "main": "./dist/main.js",
+    "license": "ISC",
+    "author": "Jattali",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./src/server.ts",
+        "start-debug": "node --inspect=0.0.0.0:9280 ./dist/main.js",
+        "build": "npm run clean && webpack --config webpack.prod.js",
+        "dev": "npm run clean && webpack --watch --config webpack.dev.js",
+        "clean": "rm -rf ./dist && mkdir ./dist",
+        "prettier": "prettier --config .prettierrc.json 'src/**/*.{ts,tsx}' --check",
+        "prettier:fix": "prettier --config .prettierrc.json 'src/**/*.{ts,tsx}' --write",
+        "lint": "eslint 'src/**/*.{ts,tsx}'",
+        "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+        "lint:fix:path": "eslint --fix $npm_config_path",
+        "prettier:lint:fix": "npm run prettier:fix && npm run lint:fix"
+    },
+    "dependencies": {
+        "axios": "^0.26.0",
+        "ajv": "8.11.0",
+        "socket.io": "^2.2.0",
+        "socket.io-client": "^2.2.0",
+        "bufferutil": "4.0.6",
+        "express": "^4.17.3",
+        "express-session": "^1.17.2",
+        "helmet": "^3.5.0",
+        "morgan": "^1.10.0",
+        "utf-8-validate": "5.0.9"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.13.0",
+        "@typescript-eslint/parser": "^5.13.0",
+        "compression-webpack-plugin": "^9.2.0",
+        "eslint": "^8.10.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.4",
+        "prettier": "^2.5.1",
+        "terser-webpack-plugin": "^5.3.1",
+        "ts-loader": "^9.2.7",
+        "typescript": "^4.6.2",
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-merge": "^5.8.0",
+        "webpack-node-externals": "3.0.0"
+    }
+}

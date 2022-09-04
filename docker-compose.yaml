@@ -1,0 +1,20 @@
+version: "3.7"
+networks:
+  boilerplate_default:
+    name: boilerplate_default
+    driver: bridge
+
+services:
+  boilerplate:
+    image: "boilerplate"
+    container_name: "boilerplate"
+    build:
+      context: .
+    privileged: true
+    networks:
+      - boilerplate_default
+    ports:
+      - 9831:9831
+      - 9280:9280
+    restart: always
+
